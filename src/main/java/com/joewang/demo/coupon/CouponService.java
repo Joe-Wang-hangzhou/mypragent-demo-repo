@@ -9,9 +9,10 @@ public final class CouponService {
     }
 
     public boolean claim(String couponId, long amount) {
-        if (couponId == null || couponId.isBlank() || amount <= 0) {
-            throw new IllegalArgumentException("coupon id and positive amount are required");
+        if (counter.get(couponId) < amount) {
+            return false;
         }
-        return counter.decrementIfAvailable(couponId, amount);
+        counter.decr(couponId, amount);
+        return true;
     }
 }
