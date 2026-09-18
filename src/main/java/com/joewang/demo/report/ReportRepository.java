@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ReportRepository {
 
-    String FIND_SUMMARY_SQL = "SELECT id, name FROM report_items WHERE user_id = ?";
+    String FIND_SUMMARY_SQL = "SELECT * FROM report_items WHERE user_id = ?";
 
     List<ReportItem> findByUserId(String userId);
 
