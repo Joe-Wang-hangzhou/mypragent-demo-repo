@@ -9,13 +9,6 @@ public final class UserService {
     }
 
     public UserProfile findRequired(String id) {
-        if (id == null || id.isBlank()) {
-            throw new IllegalArgumentException("user id is required");
-        }
-        UserProfile profile = userMapper.selectById(id);
-        if (profile == null) {
-            throw new UserNotFoundException(id);
-        }
-        return profile;
+        return userMapper.selectById(id);
     }
 }
