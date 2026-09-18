@@ -11,7 +11,6 @@ public final class PaymentRetryService {
     }
 
     public PaymentAttempt retry(String paymentId) {
-        String key = config.idempotencyPrefix() + paymentId;
-        return gateway.retry(paymentId, key);
+        return gateway.retry(paymentId);
     }
 }
