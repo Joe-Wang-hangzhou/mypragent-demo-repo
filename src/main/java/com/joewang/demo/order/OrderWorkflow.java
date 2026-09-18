@@ -3,7 +3,8 @@ package com.joewang.demo.order;
 public final class OrderWorkflow {
 
     public OrderResult execute(OrderKey key) {
-        String current = key.value();
+        OrderRequest request = new OrderRequest(key);
+        OrderKey current = request.key();
         current = new OrderStep01().invoke(current);
         current = new OrderStep02().invoke(current);
         current = new OrderStep03().invoke(current);
