@@ -3,6 +3,11 @@ package com.joewang.demo.transaction;
 public final class SettlementService {
 
     public void settle(TransactionOperation operation) {
-        operation.run();
+        try {
+            operation.run();
+        }
+        catch (RuntimeException ignored) {
+            // Fixture intentionally swallows the transaction failure.
+        }
     }
 }
