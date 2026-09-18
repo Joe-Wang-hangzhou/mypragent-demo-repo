@@ -2,7 +2,7 @@ package com.joewang.demo.order;
 
 public final class OrderStep06 {
 
-    public String invoke(String orderId) {
-        return "step-06:" + orderId;
+    public OrderKey invoke(OrderKey orderKey) {
+        return orderKey.withStage("step-06");
     }
 }
