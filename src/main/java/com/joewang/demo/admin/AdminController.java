@@ -2,13 +2,13 @@ package com.joewang.demo.admin;
 
 public final class AdminController {
 
-    private final AdminService adminService;
+    private final AdminMapper adminMapper;
 
-    public AdminController(AdminService adminService) {
-        this.adminService = adminService;
+    public AdminController(AdminMapper adminMapper) {
+        this.adminMapper = adminMapper;
     }
 
     public String getName(String adminId) {
-        return adminService.requireName(adminId);
+        return adminMapper.findName(adminId);
     }
 }
